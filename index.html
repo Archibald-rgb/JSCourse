@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Дз 3</title>
+</head>
+
+<body>
+	<script>
+		// Пункт 1
+		// С помощью цикла while вывести все простые числа в промежутке от 0 до 100
+		document.write('<h2>задание 1</h2>');
+
+
+
+		// function isSimple(num) {
+		// 	if (num % 2 && num != 1) {
+		// 		var s = 4, k = 1, m = 2 ** num - 1;
+		// 		while (k != num - 1) {
+		// 			s = ((s * s) - 2) % m;
+		// 			k++;
+		// 			console.log(s + ' ' + k + ' ' + num);
+		// 		}
+		// 		return s ? false : true;
+		// 	}
+		// 	return false;
+		// }
+		function isSimple(num) {
+			if (num % 2 && num != 1) {
+				var s = (num - 1) / 2;
+				s = s % 2 ? s : (s - 1);
+				while (s > 1) {
+					if (num % s) {
+						s = s - 2;
+					}
+					else {
+						return false;
+					}
+				}
+				return true;
+			}
+			if (num == 2) {
+				return true;
+			} else {
+				return false;
+			}
+		}
+
+
+		function showSimple(x) {
+			for (var i = 1; i < x; i++) {
+				if (isSimple(i)) {
+					document.write(i + ' ,');
+				}
+			}
+		}
+
+		function showSimple2(x) {
+			var num = 3, s = 0, isSimp;
+			document.write(2 + ' ,');
+			while (num <= x) {
+				s = (num - 1) / 2;
+				s = s % 2 ? s : (s - 1);
+				isSimp = true;
+				for (s; s > 1; s -= 2) {
+					if (num % s) {
+						isSimp = true;
+					} else {
+						isSimp = false;
+						break;
+					}
+
+				}
+				if (isSimp) document.write(num + ' ,');
+				num += 2;
+
+			}
+		}
+		showSimple(100);
+		document.write('<br>');
+		showSimple2(100);
+
+
+		// Пункт 2
+		var cart = [
+			{
+				name: "object1",
+				price: 100,
+				quantity: 2
+			},
+			{
+				name: "object2",
+				price: 150,
+				quantity: 3
+			},
+			{
+				name: "object3",
+				price: 200,
+				quantity: 5
+			}
+		]
+		function countBasketPrice(arr) {
+			var vol = 0;
+			for (item of arr) {
+				vol += item.price * item.quantity;
+			}
+			return vol;
+		}
+		document.write('<h2>задание 2</h2>');
+		document.write("Общая цена = " + countBasketPrice(cart));
+		console.log(NaN + 5);
+	</script>
+</body>
+
+</html>
