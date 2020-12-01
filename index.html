@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<script>
+		document.write('<h1>ДЗ к уроку 4</h1>');
+		// задание 1
+		function Func(num) {
+			if (num > 0 && num < 999) {
+				this.num = num;
+				this.units = num % 10;
+				this.tens = (num - this.units) % 100 / 10;
+				this.hundreds = (num - (this.tens * 10) - this.units) / 100;
+			} else {
+				console.log('число должно быть меньше 999 или больше 0')
+				return {};
+			}
+		}
+		function Func2(num) {
+			if (num > 0 && num < 999) {
+				var tempArr = (num + '').split('');
+
+				this.num = num;
+				this.units = tempArr[2];
+				this.tens = tempArr[1];
+				this.hundreds = tempArr[0];
+			} else {
+				console.log('число должно быть меньше 999 или больше 0')
+				return {};
+			}
+		}
+		var x = new Func(569);
+		var y = new Func2(321);
+		document.write('<p>число = ' + x.num + '</p>');
+		document.write('сотни = ' + x.hundreds + ' десятки = ' + x.tens + ' еденицы = ' + x.units);
+		document.write('<p>число = ' + y.num + '</p>');
+		document.write('сотни = ' + y.hundreds + ' десятки = ' + y.tens + ' еденицы = ' + y.units);
+
+	</script>
+	<script defer src="main.js"></script>
+	<script defer src="game.js"></script>
+</body>
+
+</html>
