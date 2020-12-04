@@ -72,13 +72,15 @@ function ChessDesk(className) {
 
 	function tiles(parentClass, element) {
 		var alphaBet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
+
+		//отличия от предыдущего скрипта меняем буквы на коды шахматных фигур
 		var figuresWhite = {
-			a1: 'Л', b1: 'Кн', 'c1': 'С', 'd1': 'Кр', 'e1': 'Ф', 'f1': 'С', 'g1': 'Кн', 'h1': 'Л',
-			'a2': 'п', 'b2': 'п', 'c2': 'п', 'd2': 'п', 'e2': 'п', 'f2': 'п', 'g2': 'п', 'h2': 'п'
+			'a1': '♖', 'b1': '♘', 'c1': '♗', 'd1': '♔', 'e1': '♕', 'f1': '♗', 'g1': '♘', 'h1': '♖',
+			'a2': '♙', 'b2': '♙', 'c2': '♙', 'd2': '♙', 'e2': '♙', 'f2': '♙', 'g2': '♙', 'h2': '♙'
 		};
 		var figuresBlack = {
-			'a8': 'Л', 'b8': 'Кн', 'c8': 'С', 'd8': 'Кр', 'e8': 'Ф', 'f8': 'С', 'g8': 'Кн', 'h8': 'Л',
-			'a7': 'п', 'b7': 'п', 'c7': 'п', 'd7': 'п', 'e7': 'п', 'f7': 'п', 'g7': 'п', 'h7': 'п'
+			'a8': '♜', 'b8': '♞', 'c8': '♝', 'd8': '♚', 'e8': '♛', 'f8': '♝', 'g8': '♞', 'h8': '♜',
+			'a7': '♟', 'b7': '♟', 'c7': '♟', 'd7': '♟', 'e7': '♟', 'f7': '♟', 'g7': '♟', 'h7': '♟'
 		}
 		var classPref = '';
 		for (var i = 8; i >= 1; i--) {
@@ -106,14 +108,14 @@ function ChessDesk(className) {
 				for (var key in figuresWhite) {
 					if (key == pos) {
 						elem.innerHTML = figuresWhite[key];
-						elem.classList.add('white');
+						elem.classList.add('whitef');
 					}
 
 				}
 				for (var key in figuresBlack) {
 					if (key == pos) {
 						elem.innerHTML = figuresBlack[key];
-						elem.classList.add('black');
+						elem.classList.add('blackf');
 					}
 
 				}
@@ -130,4 +132,4 @@ function ChessDesk(className) {
 }
 
 
-chessDesk = new ChessDesk('chess-alpha');
+chessDesk = new ChessDesk('chess-alphaf');
