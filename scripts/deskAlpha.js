@@ -4,9 +4,10 @@ function ChessDesk(className) {
 		console.log('error, class name is not exist');
 		return {};
 	}
+	document.body.style.fontSize = document.body.clientWidth / 100 + 'px';
 	this.desk.style.width = document.body.clientWidth / 100 * 40 + 'px';
 	this.desk.style.height = document.body.clientWidth / 100 * 40 + 'px';
-
+	this.field = [[], [], [], [], [], [], [], []];
 
 	for (var i = 1; i <= 3; i++) {
 		var sides = ['top', ['left', 'tiles', 'right'], 'bottom'];
@@ -71,6 +72,14 @@ function ChessDesk(className) {
 
 	function tiles(parentClass, element) {
 		var alphaBet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
+		var figuresWhite = {
+			a1: 'Л', b1: 'Кн', 'c1': 'С', 'd1': 'Кр', 'e1': 'Ф', 'f1': 'С', 'g1': 'Кн', 'h1': 'Л',
+			'a2': 'п', 'b2': 'п', 'c2': 'п', 'd2': 'п', 'e2': 'п', 'f2': 'п', 'g2': 'п', 'h2': 'п'
+		};
+		var figuresBlack = {
+			'a8': 'Л', 'b8': 'Кн', 'c8': 'С', 'd8': 'Кр', 'e8': 'Ф', 'f8': 'С', 'g8': 'Кн', 'h8': 'Л',
+			'a7': 'п', 'b7': 'п', 'c7': 'п', 'd7': 'п', 'e7': 'п', 'f7': 'п', 'g7': 'п', 'h7': 'п'
+		}
 		var classPref = '';
 		for (var i = 8; i >= 1; i--) {
 			for (var j = 1; j <= 8; j++) {
@@ -92,7 +101,25 @@ function ChessDesk(className) {
 				}
 				var elem = document.createElement("div");
 				elem.className = parentClass + "__" + "tile-" + classPref;
-				// elem.innerHTML = i + alphaBet[j - 1];
+				var pos = alphaBet[j - 1] + i;
+				console.log(pos);
+				for (var key in figuresWhite) {
+					if (key == pos) {
+						elem.innerHTML = figuresWhite[key];
+						elem.classList.add('white');
+					}
+
+				}
+				for (var key in figuresBlack) {
+					if (key == pos) {
+						elem.innerHTML = figuresBlack[key];
+						elem.classList.add('black');
+					}
+
+				}
+
+
+
 				element.append(elem);
 			}
 
@@ -103,4 +130,4 @@ function ChessDesk(className) {
 }
 
 
-chessDesk = new ChessDesk('chess-desk');
+chessDesk = new ChessDesk('chess-alpha');
