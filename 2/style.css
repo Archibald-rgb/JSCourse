@@ -1,0 +1,101 @@
+.header {
+}
+.header__title {
+	text-align: center;
+}
+
+.shop {
+	display: flex;
+	justify-content: space-between;
+	max-width: 60%;
+	box-sizing: border-box;
+	margin: 0 auto;
+	padding: 5px;
+}
+.shop__side {
+	width: 28%;
+	background-color: rgba(253, 228, 87, 0.699);
+	border: 1px solid rgba(112, 112, 109, 0.795);
+	border-radius: 5px;
+	padding: 10px;
+}
+.cart {
+}
+.cart__title {
+	margin: 0px 0px 20px 0px;
+}
+.cart__objects {
+}
+
+.cart__objects table {
+	border: 1px solid #333333;
+	background-color: #fff;
+}
+.cart__item {
+}
+.item-cart {
+	border: 1px solid #333333;
+}
+.item-cart__count {
+	border: 1px solid #333333;
+}
+.item-cart__img {
+	border: 1px solid #333333;
+	width: 60px;
+	height: 35px;
+}
+.item-cart__name {
+	border: 1px solid #333333;
+}
+.item-cart__vol {
+	border: 1px solid #333333;
+}
+.item-cart__price {
+	border: 1px solid #333333;
+}
+.cart__total {
+}
+.cart__total-text {
+}
+.cart__total-num {
+	border: 1px solid #333333;
+}
+.cart__butt {
+}
+
+.shop__content {
+	width: 75%;
+	padding: 10px;
+}
+.shop__cards {
+	display: flex;
+	justify-content: space-around;
+	border: 1px solid rgba(112, 112, 109, 0.795);
+	padding: 5px;
+}
+.shop__card {
+	display: flex;
+	flex-direction: column;
+
+	max-width: 30%;
+	border: 1px solid #333333;
+	padding: 5px 2px;
+}
+.card {
+}
+.card__item-image {
+}
+.card__item-price {
+}
+.card__item-desk {
+	flex: 1 0 auto;
+}
+.card__butt {
+	justify-self: center;
+}
+
+.rub::after {
+	content: "₽";
+	position: relative;
+	right: 0px;
+}
