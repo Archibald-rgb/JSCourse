@@ -1,0 +1,26 @@
+.slider-box {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	max-width: 1024px;
+	min-height: 700px;
+	margin: 0 auto;
+}
+.slider-box__title {
+	text-align: center;
+}
+.slider {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.slider__left {
+	height: 10%;
+}
+.slider__view {
+}
+.slider__img {
+}
+.slider__right {
+	height: 10%;
+}
