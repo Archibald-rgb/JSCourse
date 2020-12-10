@@ -14,9 +14,9 @@ function init() {
 
     var wrap = document.getElementsByClassName('wrap')[0];
     // Подгоняем размер контейнера под игровое поле
-    
-	/*
-	if (16 * (FIELD_SIZE_X + 1) < 380) {
+
+    /*
+    if (16 * (FIELD_SIZE_X + 1) < 380) {
         wrap.style.width = '380px';
     }
     else {
@@ -28,7 +28,7 @@ function init() {
     document.getElementById('snake-start').addEventListener('click', startGame);
     document.getElementById('snake-renew').addEventListener('click', refreshGame);
 
-// Отслеживание клавиш клавиатуры
+    // Отслеживание клавиш клавиатуры
     addEventListener('keydown', changeDirection);
 }
 
@@ -85,7 +85,7 @@ function respawn() {
     var snake_head = document.getElementsByClassName('cell-' + start_coord_y + '-' + start_coord_x)[0];
     snake_head.setAttribute('class', snake_head.getAttribute('class') + ' snake-unit');
     // Тело змейки
-    var snake_tail = document.getElementsByClassName('cell-' + (start_coord_y-1) + '-' + start_coord_x)[0];
+    var snake_tail = document.getElementsByClassName('cell-' + (start_coord_y - 1) + '-' + start_coord_x)[0];
     snake_tail.setAttribute('class', snake_tail.getAttribute('class') + ' snake-unit');
 
     snake.push(snake_head);
@@ -101,7 +101,7 @@ function respawn() {
 function move() {
     //console.log('move',direction);
     // Сборка классов
-    var snake_head_classes = snake[snake.length-1].getAttribute('class').split(' ');
+    var snake_head_classes = snake[snake.length - 1].getAttribute('class').split(' ');
 
     // Сдвиг головы
     var new_unit;
@@ -133,12 +133,12 @@ function move() {
         snake.push(new_unit);
 
         // Проверяем, надо ли убрать хвост
-       
-	   if (!haveFood(new_unit)) {
+
+        if (!haveFood(new_unit)) {
             // Находим хвост
-           var removed = snake.splice(0, 1)[0];
+            var removed = snake.splice(0, 1)[0];
             var classes = removed.getAttribute('class').split(' ');
-			
+
             // удаляем хвост
             removed.setAttribute('class', classes[0] + ' ' + classes[1]);
         }
@@ -177,6 +177,8 @@ function haveFood(unit) {
         createFood();
 
         score++;
+        var scoreField = document.querySelector('.score-field__num');
+        scoreField.innerHTML = score;
     }
     return check;
 }
@@ -214,8 +216,8 @@ function createFood() {
  */
 function changeDirection(e) {
     console.log(e);
-	
-	switch (e.keyCode) {
+
+    switch (e.keyCode) {
         case 37: // Клавиша влево
             if (direction != 'x+') {
                 direction = 'x-'
