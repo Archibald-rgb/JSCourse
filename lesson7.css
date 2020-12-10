@@ -39,6 +39,9 @@ td.game-table-cell {
 .food-unit {
     background-color: red;
 }
+.bomb-unit {
+    background-color: #fffb00;
+}
 .buttons {
     box-sizing: border-box;
     display: flex;
