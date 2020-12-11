@@ -114,15 +114,27 @@ function move() {
     // Определяем новую точку
     if (direction == 'x-') {
         new_unit = document.getElementsByClassName('cell-' + (coord_y) + '-' + (coord_x - 1))[0];
+        if (new_unit == undefined) {
+            new_unit = document.getElementsByClassName('cell-' + (coord_y) + '-' + (FIELD_SIZE_X - 1))[0];
+        }
     }
     else if (direction == 'x+') {
         new_unit = document.getElementsByClassName('cell-' + (coord_y) + '-' + (coord_x + 1))[0];
+        if (new_unit == undefined) {
+            new_unit = document.getElementsByClassName('cell-' + (coord_y) + '-' + (0))[0];
+        }
     }
     else if (direction == 'y+') {
         new_unit = document.getElementsByClassName('cell-' + (coord_y - 1) + '-' + (coord_x))[0];
+        if (new_unit == undefined) {
+            new_unit = document.getElementsByClassName('cell-' + (FIELD_SIZE_Y - 1) + '-' + (coord_x))[0];
+        }
     }
     else if (direction == 'y-') {
         new_unit = document.getElementsByClassName('cell-' + (coord_y + 1) + '-' + (coord_x))[0];
+        if (new_unit == undefined) {
+            new_unit = document.getElementsByClassName('cell-' + (0) + '-' + (coord_x))[0];
+        }
     }
 
     // Проверки
