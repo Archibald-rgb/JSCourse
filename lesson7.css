@@ -33,14 +33,14 @@ td.game-table-cell {
     height: 15px;
     border: 1px dotted #eee;
 }
-.snake-unit {
-    background-color: white;
-}
 .food-unit {
     background-color: red;
 }
+.snake-unit {
+    background-color: white;
+}
 .bomb-unit {
-    background-color: #fffb00;
+    background-color: #ffc400;
 }
 .buttons {
     box-sizing: border-box;

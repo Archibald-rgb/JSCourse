@@ -179,8 +179,11 @@ function isSnakeUnit(unit) {//проверка, что змейка не поп�
 // проверка клетки на наличие бомбы
 function isBombUnit(unit) {
     var check = false;
-    var unit_classes = unit.getAttribute('class').split(' ');
-    if (unit_classes.includes('bomb-unit')) {//если в змейке содержится новая ячейка, значит возникло пересечение
+    // /var unit_classes = unit.getAttribute('class').split(' ');
+    // if (unit_classes.includes('bomb-unit')) {//если в змейке содержится новая ячейка, значит возникло пересечение
+    //     check = true;
+    // }
+    if (unit.classList.contains('bomb-unit')) {
         check = true;
     }
     return check;
@@ -192,14 +195,10 @@ function isBombUnit(unit) {
  */
 function haveFood(unit) {
     var check = false;
-
-    var unit_classes = unit.getAttribute('class').split(' ');
-
     // Если еда
-    if (unit_classes.includes('food-unit')) {
+    if (unit.classList.contains('food-unit')) {
         check = true;
         createFood();
-
         score++;
         var scoreField = document.querySelector('.score-field__num');
         scoreField.innerHTML = score;
@@ -219,17 +218,9 @@ function createFood() {
         var food_y = Math.floor(Math.random() * FIELD_SIZE_Y);
 
         var food_cell = document.getElementsByClassName('cell-' + food_y + '-' + food_x)[0];
-        var food_cell_classes = food_cell.getAttribute('class').split(' ');
-
         // проверка на змейку
-        if (!food_cell_classes.includes('snake-unit')) {
-            var classes = '';
-            // for (var i = 0; i < food_cell_classes.length; i++) {
-            //     classes += food_cell_classes[i] + ' ';
-            // }
-
-            // food_cell.setAttribute('class', classes + 'food-unit');
-            food_cell.setAttribute('class', food_cell.getAttribute('class') + ' ' + 'food-unit');
+        if (!food_cell.classList.contains('snake-unit') && !food_cell.classList.contains('bomb-unit')) {
+            food_cell.classList.add('food-unit');
             foodCreated = true;
         }
     }
@@ -244,17 +235,9 @@ function createBomb() {
         var bomb_y = Math.floor(Math.random() * FIELD_SIZE_Y);
 
         var bomb_cell = document.getElementsByClassName('cell-' + bomb_y + '-' + bomb_x)[0];
-        var bomb_cell_classes = bomb_cell.getAttribute('class').split(' ');
-
         // проверка на змейку и еду
-        if (!bomb_cell_classes.includes('snake-unit') && !bomb_cell_classes.includes('food-unit')) {
-            var classes = '';
-            // for (var i = 0; i < food_cell_classes.length; i++) {
-            //     classes += food_cell_classes[i] + ' ';
-            // }
-
-            // food_cell.setAttribute('class', classes + 'food-unit');
-            bomb_cell.setAttribute('class', bomb_cell.getAttribute('class') + ' ' + 'bomb-unit');
+        if (!bomb_cell.classList.contains('snake-unit') && !bomb_cell.classList.contains('food-unit')) {
+            bomb_cell.classList.add('bomb-unit');
             bombCreated = true;
         }
     }
