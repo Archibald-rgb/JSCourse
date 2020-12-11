@@ -143,7 +143,7 @@ function move() {
     //console.log(new_unit);
     if (!isSnakeUnit(new_unit) && !isBombUnit(new_unit)) {
         // Добавление новой части змейки
-        new_unit.setAttribute('class', new_unit.getAttribute('class') + ' snake-unit');
+        new_unit.classList.add('snake-unit');
         snake.push(new_unit);
 
         // Проверяем, надо ли убрать хвост
@@ -179,10 +179,7 @@ function isSnakeUnit(unit) {//проверка, что змейка не поп�
 // проверка клетки на наличие бомбы
 function isBombUnit(unit) {
     var check = false;
-    // /var unit_classes = unit.getAttribute('class').split(' ');
-    // if (unit_classes.includes('bomb-unit')) {//если в змейке содержится новая ячейка, значит возникло пересечение
-    //     check = true;
-    // }
+
     if (unit.classList.contains('bomb-unit')) {
         check = true;
     }
