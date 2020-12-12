@@ -8,7 +8,16 @@ var gameIsRunning = false; // Запущена ли игра
 var snake_timer; // Таймер змейки
 var food_timer; // Таймер для еды
 var bomb_timer;
-var score = 0; // Результат
+var score = increase(); // Результат
+
+
+//функция замыкание
+function increase() {
+    var x = 0;
+    return function () {
+        return ++x;
+    }
+}
 
 function init() {
     prepareGameField(); // Генерация поля
@@ -196,9 +205,9 @@ function haveFood(unit) {
     if (unit.classList.contains('food-unit')) {
         check = true;
         createFood();
-        score++;
+        //score++;
         var scoreField = document.querySelector('.score-field__num');
-        scoreField.innerHTML = score;
+        scoreField.innerHTML = score();
     }
     return check;
 }
@@ -277,7 +286,7 @@ function finishTheGame() {
     gameIsRunning = false;
     clearInterval(snake_timer);
     clearInterval(bomb_timer);
-    alert('Вы проиграли! Ваш результат: ' + score.toString());
+    alert('Вы проиграли! Ваш результат: ' + (score() - 1));
 }
 
 /**
