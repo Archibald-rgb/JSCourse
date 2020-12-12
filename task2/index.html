@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<script>
+		1. Для практикума из занятия 7 продумать, где можно применить замыкания.
+2. Не выполняя кода, ответить, что выведет браузер и почему:
+
+		if (!("a" in window)) {  //результат undefined потому что а не обьявлена в этом окружении
+			var a = 1;
+		}
+		alert(a);
+
+
+		var b = function a(x) {  // alert выведет код функции а. потому что а без скобок
+			x && a(--x);
+		};
+		alert(a);
+
+
+		function a(x) { // результат undefined потому что а обьявлена как переменная но она не инициализирована
+			return x * 2;
+		}
+		var a;
+		alert(a);
+
+
+		function b(x, y, a) { // результат = 10. переменной а присваивается значение 10 через массив аргументов
+			arguments[2] = 10;
+			alert(a);
+		}
+		b(1, 2, 3);
+
+
+		function a() { // результат null потому что ввызов функции передается обьект null
+			alert(this);
+		}
+		a.call(null);
+	</script>
+</body>
+
+</html>
